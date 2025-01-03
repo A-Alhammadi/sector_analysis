@@ -6,7 +6,6 @@ Orchestrates the entire workflow:
 - Validate, process, and compute metrics
 - Plot results
 """
-#f
 import pandas as pd
 from config import SP500_TICKER, END_DATE
 from data_import import fetch_data
