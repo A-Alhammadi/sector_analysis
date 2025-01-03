@@ -8,7 +8,7 @@ cumulative performance, and correlation heatmaps.
 import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
-from config import SP500_TICKER, SECTOR_ETFS, PERIODS
+from config import SP500_TICKER, SECTOR_NAMES, PERIODS
 from calculations import calculate_daily_returns
 
 
@@ -18,11 +18,12 @@ def plot_rolling_correlation(rolling_corr: pd.DataFrame):
     """
     for col in rolling_corr.columns:
         if col != SP500_TICKER:
-            plt.plot(rolling_corr.index, rolling_corr[col], label=col)
+            label = f"{col} - {SECTOR_NAMES.get(col, 'Unknown')}"
+            plt.plot(rolling_corr.index, rolling_corr[col], label=label)
     plt.title("Rolling Correlation with S&P 500")
     plt.xlabel("Date")
     plt.ylabel("Correlation")
-    plt.legend()
+    plt.legend(loc="upper left", bbox_to_anchor=(1, 1))
     plt.tight_layout()
 
 
@@ -32,11 +33,12 @@ def plot_relative_performance(relative_perf: pd.DataFrame):
     """
     for col in relative_perf.columns:
         if col != SP500_TICKER:
-            plt.plot(relative_perf.index, relative_perf[col], label=col)
+            label = f"{col} - {SECTOR_NAMES.get(col, 'Unknown')}"
+            plt.plot(relative_perf.index, relative_perf[col], label=label)
     plt.title("Relative Performance vs. S&P 500")
     plt.xlabel("Date")
     plt.ylabel("Relative Performance")
-    plt.legend()
+    plt.legend(loc="upper left", bbox_to_anchor=(1, 1))
     plt.tight_layout()
 
 
@@ -45,11 +47,12 @@ def plot_cumulative_performance(cum_returns: pd.DataFrame):
     Plot cumulative performance for each ticker.
     """
     for col in cum_returns.columns:
-        plt.plot(cum_returns.index, cum_returns[col], label=col)
+        label = f"{col} - {SECTOR_NAMES.get(col, 'Unknown')}"
+        plt.plot(cum_returns.index, cum_returns[col], label=label)
     plt.title("Cumulative Returns")
     plt.xlabel("Date")
     plt.ylabel("Cumulative Return")
-    plt.legend()
+    plt.legend(loc="upper left", bbox_to_anchor=(1, 1))
     plt.tight_layout()
 
 

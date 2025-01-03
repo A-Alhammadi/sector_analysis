@@ -21,6 +21,20 @@ SECTOR_ETFS = [
     "XLU"    # Utilities
 ]
 
+SECTOR_NAMES = {
+    "XLY": "Consumer Discretionary",
+    "XLP": "Consumer Staples",
+    "XLE": "Energy",
+    "XLF": "Financials",
+    "XLV": "Health Care",
+    "XLI": "Industrials",
+    "XLB": "Materials",
+    "XLK": "Technology",
+    "XLC": "Communication Services",
+    "XLRE": "Real Estate",
+    "XLU": "Utilities",
+}
+
 SP500_TICKER = "^GSPC"
 VIX_TICKER = "^VIX"
 
