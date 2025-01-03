@@ -1,4 +1,4 @@
-# ETF Analysis Program
+# Sector Analysis Program
 
 ## Overview
 
